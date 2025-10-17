@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UNO Café — About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="nav-logo" href="index.html"><img src="logo.jpg" alt="UNO Café logo"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contacts</a>
+        <a href="about.html" class="active">About Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero-layout">
+    <section class="left-panel">
+      <img class="big-logo" src="logo.jpg" alt="UNO Café big logo">
+      <h1 class="brand-title">UNO</h1>
+      <h2 class="sub-title">CAFÉ — ABOUT US</h2>
+
+      <p class="about-text">
+        Founded in 2025 in Mauban, Quezon, UNO Café began with a simple passion — crafting coffee that feels like home.
+        Our mission is to fuel your day the Uno way: one cup of warmth, comfort, and creativity at a time.
+      </p>
+
+      <div class="actions">
+        <button class="btn primary" id="openOrder3">ORDER NOW</button>
+      </div>
+    </section>
+
+    <aside class="right-panel">
+      <div class="img large">
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="100%" height="100%" fill="#E9DCCF"/>
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-size="44">Our Story</text>
+        </svg>
+      </div>
+
+      <div class="img-grid">
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-size="20">Latte</text>
+          </svg>
+        </div>
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-size="20">Americano</text>
+          </svg>
+        </div>
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-size="20">Mocha</text>
+          </svg>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>©2025 UNO CAFÉ</p>
+  </footer>
+
+<script>
+  // lightweight feedback for order buttons on pages without modal
+  ['openOrder2','openOrder3'].forEach(id=>{
+    const btn = document.getElementById(id);
+    if(btn) btn.addEventListener('click', ()=> alert('Order form available on the Home page. Open Home to place an order (this is a static mockup).'));
+  });
+</script>
+</body>
+</html>
