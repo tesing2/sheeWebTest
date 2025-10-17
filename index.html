@@ -1,77 +1,154 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta />
-  <meta />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>UNO Café — Home</title>
-  <link />
+
+  <!-- Font to get a decorative serif for the logo feeling -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <nav>
-      <a><img src="logo.jpg"></a>
-      <div>
-        <a>Home</a>
-        <a>Menu</a>
-        <a>Contact</a>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="nav-logo" href="index.html"><img src="logo.jpg" alt="UNO Café logo"></a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contacts</a>
+        <a href="about.html">About Us</a>
       </div>
     </nav>
   </header>
 
-  <main>
-    <section>
-      <img src="logo.jpg">
-      <h1>UNO Café</h1>
-      <p>Simple. Cozy. Delicious.</p>
+  <main class="hero-layout">
+    <!-- LEFT content column -->
+    <section class="left-panel">
+      <img class="big-logo" src="logo.jpg" alt="UNO Café big logo">
+      <h1 class="brand-title">UNO</h1>
+      <h2 class="sub-title">CAFÉ</h2>
+      <p class="quote">“Fuel Your Day, the Uno Way.”</p>
 
-      <div>
-        <a>Order Now</a>
-        <a>Contact</a>
+      <div class="actions">
+        <button class="btn primary" id="openOrder">ORDER NOW</button>
       </div>
 
-      <div>
-        <a>📞 +63 912 345 6789</a>
-        <a>📍 123 Aroma St, Brewtown</a>
+      <div class="contact-info">
+        <a class="contact-row" href="tel:+639481889076">📞 +639481889076</a>
+        <a class="contact-row" href="https://www.google.com/maps/search/Mauban+Quezon" target="_blank" rel="noopener">📍 Mauban, Quezon</a>
       </div>
     </section>
 
-    <aside>
-      <!-- top-right big placeholder image -->
-      <div>
-        <!-- inline SVG placeholder -->
-        <svg>
-          <rect/>
-          <text dominant-baseline="middle" text-anchor="middle" font-size="28">Latte</text>
+    <!-- RIGHT image column (placeholders) -->
+    <aside class="right-panel">
+      <div class="img large">
+        <!-- big coffee placeholder (replace with image if you have one) -->
+        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="100%" height="100%" fill="#E9DCCF"/>
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-family="Montserrat, sans-serif" font-size="44">Latte / Featured</text>
         </svg>
       </div>
 
-      <!-- grid of small drink placeholders -->
-      <div>
-        <div>
-          <svg>
-            <rect/>
-            <text dominant-baseline="middle" text-anchor="middle" font-size="18">Americano</text>
+      <div class="img-grid">
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-family="Montserrat, sans-serif" font-size="20">Iced Coffee</text>
           </svg>
         </div>
-        <div>
-          <svg>
-            <rect/>
-            <text dominant-baseline="middle" text-anchor="middle" font-size="18">Mocha</text>
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-family="Montserrat, sans-serif" font-size="20">Mocha</text>
           </svg>
         </div>
-        <div>
-          <svg>
-            <rect/>
-            <text dominant-baseline="middle" text-anchor="middle" font-size="18">Espresso</text>
+        <div class="img small">
+          <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="100%" height="100%" fill="#F6EDE3"/>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#7B3F00" font-family="Montserrat, sans-serif" font-size="20">Espresso</text>
           </svg>
         </div>
       </div>
     </aside>
   </main>
 
-  <footer>
-    <p>© UNO Café — Where every cup tells a story.</p>
+  <footer class="site-footer">
+    <p>©2025 UNO CAFÉ</p>
   </footer>
+
+  <!-- Order modal (hidden by default) -->
+  <div id="orderModal" class="modal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeOrder" aria-label="Close">&times;</button>
+      <h3 id="modalTitle">Place an order</h3>
+
+      <form id="orderForm" class="order-form">
+        <label>
+          Name
+          <input type="text" name="name" required>
+        </label>
+
+        <label>
+          Drink (choose)
+          <select name="drink" required>
+            <option>Caramel Latte</option>
+            <option>Classic Americano</option>
+            <option>Chocolate Mocha</option>
+            <option>Espresso</option>
+          </select>
+        </label>
+
+        <label>
+          Note
+          <textarea name="note" rows="3"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Submit</button>
+          <button type="button" class="btn ghost" id="closeOrder2">Cancel</button>
+        </div>
+
+        <p id="thankYou" class="thank-you" hidden>Thanks! Your order was received (this is a mockup).</p>
+      </form>
+    </div>
+  </div>
+
+<script>
+  // minimal JS to open/close modal and show thank-you message (no network)
+  (function(){
+    const openBtn = document.getElementById('openOrder');
+    const modal = document.getElementById('orderModal');
+    const closeBtn = document.getElementById('closeOrder');
+    const closeBtn2 = document.getElementById('closeOrder2');
+    const form = document.getElementById('orderForm');
+    const thank = document.getElementById('thankYou');
+
+    function showModal(){
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+    }
+    function hideModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+      thank.hidden = true;
+      form.querySelectorAll('input, textarea, select').forEach(e => { if(e.tagName!=='SELECT') e.value=''; });
+    }
+
+    openBtn.addEventListener('click', showModal);
+    closeBtn.addEventListener('click', hideModal);
+    closeBtn2.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => { if(e.target === modal) hideModal(); });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault(); // do not send anywhere
+      // show thank-you message
+      thank.hidden = false;
+      form.querySelectorAll('input, textarea, select, button').forEach(b => b.disabled = true);
+      setTimeout(hideModal, 1800); // auto-close after 1.8s
+    });
+  })();
+</script>
 </body>
 </html>
-
